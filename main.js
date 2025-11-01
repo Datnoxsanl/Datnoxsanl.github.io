@@ -78,7 +78,7 @@ function showToast() {
 }
 
 // Gắn sự kiện khi nhấn nút "Portfolio"
-document.getElementById("portfolioBtn").addEventListener("click", (e) => {
+document.getElementsByClassName("portfolio-wrapper").addEventListener("click", (e) => {
   e.preventDefault(); // Ngăn chuyển trang
   showToast();
 });
