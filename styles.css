@@ -401,3 +401,111 @@ body.dark-mode .theme-toggle:hover {
         background-position: 0% 50%;
     }
 }
+
+/* Toast Notification
+    .toast {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 14px 24px;
+        border-radius: 30px;
+        font-size: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+        z-index: 9999;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+    }
+
+    body.dark-mode .toast {
+        background: rgba(255, 255, 255, 0.9);
+        color: #0f172a;
+    } */
+
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    z-index: 9999;
+}
+
+/* Khung toast */
+.toast {
+    display: flex;
+    align-items: center;
+    min-width: 320px;
+    max-width: 380px;
+    background: #2196f3;
+    color: white;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-family: sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.4s ease, fadeOut 0.4s ease 3.6s forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Icon */
+.toast .icon {
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+/* Thanh thời gian chạy */
+.toast::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    animation: progress 4s linear forwards;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Hiệu ứng trượt */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Hiệu ứng biến mất */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* Hiệu ứng thanh thời gian */
+@keyframes progress {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}

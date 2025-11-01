@@ -12,7 +12,7 @@ function showWord() {
   }
 }
 window.addEventListener("load", () => {
-  setTimeout(showWord, 300); 
+  setTimeout(showWord, 300);
 });
 
 // Theme Toggle
@@ -37,4 +37,48 @@ themeToggle.addEventListener("click", () => {
     themeIcon.textContent = "🌙";
     localStorage.setItem("theme", "light");
   }
+});
+
+// // Portfolio Button Toast
+// const portfolioBtn = document.getElementById("portfolioBtn");
+// const toast = document.getElementById("toast");
+
+// portfolioBtn.addEventListener("click", (e) => {
+//   e.preventDefault();
+
+//   // Nếu toast đang hiển thị, reset lại để tạo hiệu ứng lại
+//   toast.classList.remove("show");
+//   void toast.offsetWidth; // trick để reset animation
+
+//   toast.classList.add("show");
+
+//   // Ẩn toast sau 3 giây
+//   setTimeout(() => {
+//     toast.classList.remove("show");
+//   }, 3000);
+// });
+
+function showToast() {
+  const container = document.getElementById("toast-container");
+
+  const toast = document.createElement("div");
+  toast.className = "toast";
+
+  toast.innerHTML = `
+    <span class="icon">ℹ️</span>
+    <span>Portfolio sẽ sớm được cập nhật!</span>
+  `;
+
+  container.appendChild(toast);
+
+  // Tự động xóa sau 4 giây
+  setTimeout(() => {
+    toast.remove();
+  }, 4000);
+}
+
+// Gắn sự kiện khi nhấn nút "Portfolio"
+document.getElementById("portfolioBtn").addEventListener("click", (e) => {
+  e.preventDefault(); // Ngăn chuyển trang
+  showToast();
 });
