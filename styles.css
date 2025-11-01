@@ -21,7 +21,7 @@ body {
     align-items: center;
     justify-content: space-between; */
     display: grid;
-    grid-template-columns: 8fr 2fr;
+    grid-template-columns: 8fr 5fr;
     max-width: 1400px;
     width: 100%;
     gap: 100px;
@@ -60,7 +60,7 @@ body {
     line-height: 1.6;
     margin-bottom: 30px;
     /* width: 100%; */
-    max-width: 500px;
+    max-width: 700px;
 }
 
 
