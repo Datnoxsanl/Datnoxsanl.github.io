@@ -93,6 +93,67 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Portfolio Button */
+.portfolio-wrapper {
+    margin-top: 30px;
+}
+
+.portfolio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 40px;
+    background: linear-gradient(270deg, #2563eb, #10b981, #06b6d4, #2563eb);
+    background-size: 300% 300%;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    animation: rainbow 4s ease infinite;
+}
+
+.portfolio-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    animation: gradientShift 2s ease infinite;
+}
+
+.portfolio-btn svg {
+    transition: transform 0.3s ease;
+    width: 35px;
+    height: 35px;
+}
+
+.portfolio-btn img {
+    transition: transform 0.3s ease;
+    width: 35px;
+    height: 35px;
+    filter: brightness(0) invert(1);
+}
+
+.portfolio-btn:hover svg,
+.portfolio-btn:hover img {
+    transform: translateX(5px);
+}
+
+body.dark-mode .portfolio-btn {
+    /* background: linear-gradient(270deg, #7c3aed, #ec4899, #f59e0b, #7c3aed); */
+    background: linear-gradient(120deg, #60d15c, #1e52a7, #4c4091, #792c97);
+    background-size: 300% 300%;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+    animation: rainbow 2s ease infinite;
+}
+
+body.dark-mode .portfolio-btn:hover {
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6);
+    animation: rainbow 2s ease infinite;
+}
+
 .avatar-container {
     flex: 1;
     display: flex;
@@ -186,7 +247,7 @@ body.dark-mode .theme-toggle:hover {
 
 @media (max-width: 968px) {
     .container {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 50px;
         text-align: center;
     }
@@ -196,7 +257,6 @@ body.dark-mode .theme-toggle:hover {
         flex-direction: column;
         align-items: center;
     }
-
 
     .name {
         font-size: 3rem;
@@ -209,18 +269,34 @@ body.dark-mode .theme-toggle:hover {
     .social-links a {
         width: 60px;
         height: 60px;
+    }
 
+    .social-links a img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .portfolio-wrapper {
+        margin-top: 25px;
     }
 
     .avatar {
         width: 350px;
         height: 350px;
     }
+
+    .theme-toggle {
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 568px) {
     .greeting {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .name {
@@ -231,19 +307,84 @@ body.dark-mode .theme-toggle:hover {
         font-size: 1.2rem;
     }
 
+    .social-links {
+        flex-wrap: wrap;
+        max-width: 320px;
+        justify-content: center;
+    }
+
+    .social-links a {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-links a img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .portfolio-btn {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+
+    .portfolio-btn img {
+        width: 28px;
+        height: 28px;
+    }
+
     .avatar {
-        width: 280px;
-        height: 280px;
+        width: 250px;
+        height: 250px;
     }
 }
 
 @media (max-width: 400px) {
+    .greeting {
+        font-size: 1.5rem;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .social-links {
+        gap: 15px;
+    }
+
+    .social-links a {
+        width: 45px;
+        height: 45px;
+    }
+
+    .portfolio-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .portfolio-btn img {
+        width: 24px;
+        height: 24px;
+    }
+
     .avatar-container {
         display: none;
     }
 
     .container {
         gap: 30px;
+    }
+
+    .theme-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        top: 15px;
+        right: 15px;
     }
 }
 
