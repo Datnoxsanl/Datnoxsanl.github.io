@@ -66,7 +66,7 @@ function showToast() {
 
   toast.innerHTML = `
     <span class="icon">ℹ️</span>
-    <span>Portfolio sẽ sớm được cập nhật!</span>
+    <span>Portfolio will be updated soon!</span>
   `;
 
   container.appendChild(toast);
@@ -80,5 +80,6 @@ function showToast() {
 // Gắn sự kiện khi nhấn nút "Portfolio"
 document.getElementById("portfolioBtn").addEventListener("click", (e) => {
   e.preventDefault(); // Ngăn chuyển trang
+  console.log("Toast Notifycation");
   showToast();
 });
