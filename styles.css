@@ -21,7 +21,7 @@ body {
     align-items: center;
     justify-content: space-between; */
     display: grid;
-    grid-template-columns: 5fr 5fr;
+    grid-template-columns: 7fr 5fr;
     max-width: 1300px;
     width: 100%;
     gap: 100px;
