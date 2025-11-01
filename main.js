@@ -1,0 +1,40 @@
+const descText =
+  "Is an engineering student. A friendly dev who loves learning and creating fun things from web technology to embedded systems...";
+const descElem = document.getElementById("description");
+const words = descText.split(" ");
+let i = 0;
+
+function showWord() {
+  if (i < words.length) {
+    descElem.innerHTML += (i === 0 ? "" : " ") + words[i];
+    i++;
+    setTimeout(showWord, 150);
+  }
+}
+window.addEventListener("load", () => {
+  setTimeout(showWord, 300); 
+});
+
+// Theme Toggle
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const body = document.body;
+
+// Kiểm tra theme đã lưu
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  body.classList.add("dark-mode");
+  themeIcon.textContent = "☀️";
+}
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+
+  if (body.classList.contains("dark-mode")) {
+    themeIcon.textContent = "☀️";
+    localStorage.setItem("theme", "dark");
+  } else {
+    themeIcon.textContent = "🌙";
+    localStorage.setItem("theme", "light");
+  }
+});
