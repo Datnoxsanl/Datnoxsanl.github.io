@@ -21,8 +21,8 @@ body {
     align-items: center;
     justify-content: space-between; */
     display: grid;
-    grid-template-columns: 7fr 3fr;
-    max-width: 1300px;
+    grid-template-columns: 8fr 2fr;
+    max-width: 1400px;
     width: 100%;
     gap: 100px;
 }
