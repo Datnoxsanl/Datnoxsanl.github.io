@@ -459,11 +459,28 @@ body.dark-mode .theme-toggle:hover {
     overflow: hidden;
 }
 
+/* Các màu cho từng loại toast */
+.toast.info {
+    background: #2196f3;
+}
+
+/* Xanh dương */
+.toast.success {
+    background: #4caf50;
+}
+
+/* Xanh lá */
+.toast.error {
+    background: #f44336;
+}
+
+/* Đỏ */
 /* Icon */
 .toast .icon {
     font-size: 20px;
     margin-right: 12px;
 }
+
 
 /* Thanh thời gian chạy */
 .toast::after {

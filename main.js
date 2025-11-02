@@ -58,28 +58,49 @@ themeToggle.addEventListener("click", () => {
 //   }, 3000);
 // });
 
-function showToast() {
+function showToast(message, type = 'info') {
   const container = document.getElementById("toast-container");
 
   const toast = document.createElement("div");
-  toast.className = "toast";
+  toast.className = `toast ${type}`;
+
+  // Chọn icon theo loại
+  let icon = "ℹ️";
+  if (type === "success") icon = "✅";
+  if (type === "error") icon = "❌";
 
   toast.innerHTML = `
-    <span class="icon">ℹ️</span>
-    <span>Portfolio will be updated soon!</span>
+    <span class="icon">${icon}</span>
+    <span>${message}</span>
   `;
 
   container.appendChild(toast);
 
   // Tự động xóa sau 4 giây
-  setTimeout(() => {
-    toast.remove();
-  }, 4000);
+  setTimeout(() => toast.remove(), 4000);
 }
 
-// Gắn sự kiện khi nhấn nút "Portfolio"
 document.getElementById("portfolioBtn").addEventListener("click", (e) => {
-  e.preventDefault(); // Ngăn chuyển trang
-  console.log("Toast Notifycation");
-  showToast();
+  e.preventDefault();
+  showToast("Portfolio sẽ sớm được cập nhật!", "info");
+});
+
+// 🔌 Kiểm tra kết nối Internet
+function updateConnectionStatus() {
+  if (navigator.onLine) {
+    showToast("Kết nối Internet đã được khôi phục!", "success");
+  } else {
+    showToast("Mất kết nối Internet!", "error");
+  }
+}
+
+// Lắng nghe sự kiện online/offline
+window.addEventListener("online", updateConnectionStatus);
+window.addEventListener("offline", updateConnectionStatus);
+
+// Kiểm tra trạng thái ban đầu khi tải trang
+window.addEventListener("load", () => {
+  if (!navigator.onLine) {
+    showToast("Hiện đang offline!", "error");
+  }
 });
